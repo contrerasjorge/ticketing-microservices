@@ -6,10 +6,20 @@ const LandingPage = ({ currentUser }) => {
   return <h1>Landing Page</h1>;
 };
 
-LandingPage.getInitialProps = async () => {
-  const response = await axios.get('/api/users/currentuser');
+LandingPage.getInitialProps = async ({ req }) => {
+  if (typeof window === 'undefined') {
+    const { data } = await axios.get(
+      'http://ingress-nginx.ingress-nginx.svc.cluter.local/api/users/currentuser',
+      {
+        headers: req.headers,
+      }
+    );
 
-  return response.data;
+    return data;
+  } else {
+    const { data } = await axios.get('/api/users/currentuser');
+    return data;
+  }
 };
 
 export default LandingPage;
