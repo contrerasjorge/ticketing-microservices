@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@jctickets/common": "^1.0.10",
+    "@jctickets/common": "^1.0.13",
     "@types/bull": "^3.13.0",
     "bull": "^3.14.0",
     "node-nats-streaming": "^0.2.6",
