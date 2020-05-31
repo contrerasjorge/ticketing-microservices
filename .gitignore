@@ -3,3 +3,5 @@
 # the directory below can be found at:
 # https://www.npmjs.com/package/@jctickets/common
 common/
+
+*/.env
