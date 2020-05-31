@@ -6,7 +6,7 @@ const NewTicket = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const { doRequest, errors } = useRequest({
-    url: "/api/ticket",
+    url: "/api/tickets",
     method: "post",
     body: {
       title,
@@ -15,8 +15,8 @@ const NewTicket = () => {
     onSuccess: () => Router.push("/")
   });
 
-  const onSubmit = e => {
-    e.preventDefault();
+  const onSubmit = event => {
+    event.preventDefault();
 
     doRequest();
   };
@@ -44,12 +44,12 @@ const NewTicket = () => {
           />
         </div>
         <div className="form-group">
-          <label>Title</label>
+          <label>Price</label>
           <input
-            className="form-control"
             value={price}
             onBlur={onBlur}
-            onChange={e => setPrice(e.target.price)}
+            onChange={e => setPrice(e.target.value)}
+            className="form-control"
           />
         </div>
         {errors}

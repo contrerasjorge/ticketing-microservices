@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
+import Router from "next/router";
 import useRequest from "../../hooks/use-request";
-import { Router } from "next/router";
 
 const OrderShow = ({ order, currentUser }) => {
   const [timeLeft, setTimeLeft] = useState(0);
@@ -21,7 +21,7 @@ const OrderShow = ({ order, currentUser }) => {
     };
 
     findTimeLeft();
-    const timerId = setInterval(findTimeLeft(), 1000);
+    const timerId = setInterval(findTimeLeft, 1000);
 
     return () => {
       clearInterval(timerId);
