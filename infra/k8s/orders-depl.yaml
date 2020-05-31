@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order-depl
+  name: orders-depl
 spec:
   replicas: 1
   selector:
@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: orders 
+        app: orders
     spec:
       containers:
         - name: orders
@@ -40,7 +40,7 @@ spec:
   selector:
     app: orders
   ports:
-    - name: orders 
+    - name: orders
       protocol: TCP
       port: 3000
       targetPort: 3000
