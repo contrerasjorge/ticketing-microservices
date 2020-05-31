@@ -1,10 +1,10 @@
-import express from 'express';
+import express from "express";
 
-import { currentUser } from '@jctickets/common';
+import { currentUser } from "@jctickets/common";
 
 const router = express.Router();
 
-router.get('/api/users/currentuser', currentUser, (req, res) => {
+router.get("/api/users/currentuser", currentUser, (req, res) => {
   res.send({ currentUser: req.currentUser || null });
 });
 
