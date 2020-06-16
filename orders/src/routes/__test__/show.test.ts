@@ -8,7 +8,7 @@ it("fetches the order", async () => {
   const ticket = Ticket.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: "concert",
-    price: 20
+    price: 20,
   });
   await ticket.save();
 
@@ -36,7 +36,7 @@ it("it returns an error if one user tries to fetch another users order", async (
   const ticket = Ticket.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: "concert",
-    price: 20
+    price: 20,
   });
   await ticket.save();
 

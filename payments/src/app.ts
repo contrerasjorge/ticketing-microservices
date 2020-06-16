@@ -1,11 +1,11 @@
-import express from 'express';
-import 'express-async-errors';
-import cookieSession from 'cookie-session';
-import { errorHandler, NotFoundError, currentUser } from '@jctickets/common';
-import { createChargeRouter } from './routes/new';
+import express from "express";
+import "express-async-errors";
+import cookieSession from "cookie-session";
+import { errorHandler, NotFoundError, currentUser } from "@jctickets/common";
+import { createChargeRouter } from "./routes/new";
 
 const app = express();
-app.set('trust proxy', true);
+app.set("trust proxy", true);
 app.use(express.json());
 app.use(
   cookieSession({
@@ -18,7 +18,7 @@ app.use(currentUser);
 
 app.use(createChargeRouter);
 
-app.all('*', async (req, res) => {
+app.all("*", async (req, res) => {
   throw new NotFoundError();
 });
 

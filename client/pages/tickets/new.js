@@ -10,12 +10,12 @@ const NewTicket = () => {
     method: "post",
     body: {
       title,
-      price
+      price,
     },
-    onSuccess: () => Router.push("/")
+    onSuccess: () => Router.push("/"),
   });
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
 
     doRequest();
@@ -39,7 +39,7 @@ const NewTicket = () => {
           <label>Title</label>
           <input
             value={title}
-            onChange={e => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
             className="form-control"
           />
         </div>
@@ -48,7 +48,7 @@ const NewTicket = () => {
           <input
             value={price}
             onBlur={onBlur}
-            onChange={e => setPrice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value)}
             className="form-control"
           />
         </div>

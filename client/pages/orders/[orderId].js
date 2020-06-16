@@ -9,9 +9,9 @@ const OrderShow = ({ order, currentUser }) => {
     url: "/api/payments",
     method: "post",
     body: {
-      orderId: order.id
+      orderId: order.id,
     },
-    onSuccess: () => Router.push("/orders")
+    onSuccess: () => Router.push("/orders"),
   });
 
   useEffect(() => {

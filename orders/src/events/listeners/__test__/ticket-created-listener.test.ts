@@ -15,13 +15,13 @@ const setup = async () => {
     id: new mongoose.Types.ObjectId().toHexString(),
     title: "concert",
     price: 10,
-    userId: new mongoose.Types.ObjectId().toHexString()
+    userId: new mongoose.Types.ObjectId().toHexString(),
   };
 
   // create a fake message object
   // @ts-ignore
   const msg: Message = {
-    ack: jest.fn()
+    ack: jest.fn(),
   };
 
   return { listener, data, msg };

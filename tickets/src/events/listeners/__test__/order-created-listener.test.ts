@@ -13,7 +13,7 @@ const setup = async () => {
   const ticket = Ticket.build({
     title: "concert",
     price: 99,
-    userId: "asfsa"
+    userId: "asfsa",
   });
   await ticket.save();
 
@@ -26,13 +26,13 @@ const setup = async () => {
     expiresAt: "adsfsdf",
     ticket: {
       id: ticket.id,
-      price: ticket.price
-    }
+      price: ticket.price,
+    },
   };
 
   // @ts-ignore
   const msg: Message = {
-    ack: jest.fn()
+    ack: jest.fn(),
   };
 
   return { listener, ticket, data, msg };

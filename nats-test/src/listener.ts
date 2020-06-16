@@ -3,7 +3,7 @@ import { randomBytes } from "crypto";
 import { TicketCreatedListener } from "./events/ticket-created-listener";
 
 const stan = nats.connect("ticketing", randomBytes(4).toString("hex"), {
-  url: "http://localhost:4222"
+  url: "http://localhost:4222",
 });
 
 stan.on("connect", () => {

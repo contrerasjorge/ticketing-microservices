@@ -12,24 +12,24 @@ const setup = async () => {
   const ticket = Ticket.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: "concert",
-    price: 20
+    price: 20,
   });
   await ticket.save();
   const order = Order.build({
     status: OrderStatus.Created,
     userId: "sadfasd",
     expiresAt: new Date(),
-    ticket
+    ticket,
   });
   await order.save();
 
   const data: ExpirationCompleteEvent["data"] = {
-    orderId: order.id
+    orderId: order.id,
   };
 
   // @ts-ignore
   const msg: Message = {
-    ack: jest.fn()
+    ack: jest.fn(),
   };
 
   return { listener, order, ticket, data, msg };

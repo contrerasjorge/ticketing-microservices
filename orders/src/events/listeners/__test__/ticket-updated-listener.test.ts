@@ -13,7 +13,7 @@ const setup = async () => {
   const ticket = Ticket.build({
     id: mongoose.Types.ObjectId().toHexString(),
     title: "concert",
-    price: 20
+    price: 20,
   });
   await ticket.save();
 
@@ -23,13 +23,13 @@ const setup = async () => {
     version: ticket.version + 1,
     title: "new concert",
     price: 999,
-    userId: "3teohdsjnkl"
+    userId: "3teohdsjnkl",
   };
 
   // Create a fake msg object
   // @ts-ignore
   const msg: Message = {
-    ack: jest.fn()
+    ack: jest.fn(),
   };
 
   // return all of this stuff

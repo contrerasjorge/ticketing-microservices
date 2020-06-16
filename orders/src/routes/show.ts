@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import {
   requireAuth,
   NotFoundError,
-  NotAuthorizedError
+  NotAuthorizedError,
 } from "@jctickets/common";
 import { Order } from "../models/order";
 

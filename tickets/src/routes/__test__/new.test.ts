@@ -28,7 +28,7 @@ it("returns an error if an invalid title is provided", async () => {
     .set("Cookie", global.signin())
     .send({
       title: "",
-      price: 10
+      price: 10,
     })
     .expect(400);
 
@@ -36,7 +36,7 @@ it("returns an error if an invalid title is provided", async () => {
     .post("/api/tickets")
     .set("Cookie", global.signin())
     .send({
-      price: 10
+      price: 10,
     })
     .expect(400);
 });
@@ -47,7 +47,7 @@ it("returns an error if an invalid price is provided", async () => {
     .set("Cookie", global.signin())
     .send({
       title: "325436",
-      price: -10
+      price: -10,
     })
     .expect(400);
 
@@ -55,7 +55,7 @@ it("returns an error if an invalid price is provided", async () => {
     .post("/api/tickets")
     .set("Cookie", global.signin())
     .send({
-      title: "43524362"
+      title: "43524362",
     })
     .expect(400);
 });
@@ -72,7 +72,7 @@ it("creates a ticket with valid inputs", async () => {
     .set("Cookie", global.signin())
     .send({
       title,
-      price: 34
+      price: 34,
     })
     .expect(201);
 
@@ -90,7 +90,7 @@ it("publishes an event", async () => {
     .set("Cookie", global.signin())
     .send({
       title,
-      price: 34
+      price: 34,
     })
     .expect(201);
 

@@ -25,24 +25,24 @@ const orderSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
-      required: true
+      required: true,
     },
     price: {
       type: Number,
-      required: true
+      required: true,
     },
     status: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   {
     toJSON: {
       transform(doc, ret) {
         ret.id = ret._id;
         delete ret._id;
-      }
-    }
+      },
+    },
   }
 );
 
@@ -55,7 +55,7 @@ orderSchema.statics.build = (attrs: OrderAttrs) => {
     version: attrs.version,
     price: attrs.price,
     userId: attrs.userId,
-    status: attrs.status
+    status: attrs.status,
   });
 };
 

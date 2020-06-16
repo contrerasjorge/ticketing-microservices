@@ -13,7 +13,7 @@ const setup = async () => {
     status: OrderStatus.Created,
     price: 10,
     userId: "asdfsad",
-    version: 0
+    version: 0,
   });
 
   await order.save();
@@ -22,13 +22,13 @@ const setup = async () => {
     id: order.id,
     version: 1,
     ticket: {
-      id: "safasdf"
-    }
+      id: "safasdf",
+    },
   };
 
   // @ts-ignore
   const msg: Message = {
-    ack: jest.fn()
+    ack: jest.fn(),
   };
 
   return { listener, data, msg, order };

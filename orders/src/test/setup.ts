@@ -22,7 +22,7 @@ beforeAll(async () => {
 
   await mongoose.connect(mongoUri, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   });
 });
 
@@ -44,7 +44,7 @@ global.signin = () => {
   // build a JWT payload {id, email}
   const payload = {
     id: new mongoose.Types.ObjectId().toHexString(),
-    email: "test@test.com"
+    email: "test@test.com",
   };
 
   // Create the JWT
@@ -62,4 +62,3 @@ global.signin = () => {
   // Return a string that's the cookie with the encoded data
   return [`express:sess=${base64}`];
 };
-

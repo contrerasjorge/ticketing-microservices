@@ -27,21 +27,21 @@ const ticketSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     price: {
       type: Number,
       required: true,
-      min: 0
-    }
+      min: 0,
+    },
   },
   {
     toJSON: {
       transform(doc, ret) {
         ret.id = ret._id;
         delete ret._id;
-      }
-    }
+      },
+    },
   }
 );
 
@@ -51,7 +51,7 @@ ticketSchema.plugin(updateIfCurrentPlugin);
 ticketSchema.statics.findByEvent = (event: { id: string; version: number }) => {
   return Ticket.findOne({
     _id: event.id,
-    version: event.version - 1
+    version: event.version - 1,
   });
 };
 
@@ -59,7 +59,7 @@ ticketSchema.statics.build = (attrs: TicketAttrs) => {
   return new Ticket({
     _id: attrs.id,
     title: attrs.title,
-    price: attrs.price
+    price: attrs.price,
   });
 };
 ticketSchema.methods.isReserved = async function () {
@@ -69,9 +69,9 @@ ticketSchema.methods.isReserved = async function () {
       $in: [
         OrderStatus.Created,
         OrderStatus.AwaitingPayment,
-        OrderStatus.Complete
-      ]
-    }
+        OrderStatus.Complete,
+      ],
+    },
   });
 
   return !!existingOrder;

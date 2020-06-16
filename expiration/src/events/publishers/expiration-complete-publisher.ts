@@ -1,7 +1,7 @@
 import {
   Subjects,
   Publisher,
-  ExpirationCompleteEvent
+  ExpirationCompleteEvent,
 } from "@jctickets/common";
 
 export class ExpirationCompletePublisher extends Publisher<

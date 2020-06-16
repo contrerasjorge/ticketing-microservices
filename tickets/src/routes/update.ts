@@ -5,7 +5,7 @@ import {
   NotFoundError,
   requireAuth,
   NotAuthorizedError,
-  BadRequestError
+  BadRequestError,
 } from "@jctickets/common";
 import { Ticket } from "../models/ticket";
 import { TicketUpdatedPublisher } from "../events/publishers/ticket-updated-publisher";
@@ -20,7 +20,7 @@ router.put(
     body("title").not().isEmpty().withMessage("Title is required"),
     body("price")
       .isFloat({ gt: 0 })
-      .withMessage("Price must be provided and must be greater than 0")
+      .withMessage("Price must be provided and must be greater than 0"),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
@@ -40,7 +40,7 @@ router.put(
 
     ticket.set({
       title: req.body.title,
-      price: req.body.price
+      price: req.body.price,
     });
     await ticket.save();
 
@@ -49,7 +49,7 @@ router.put(
       title: ticket.title,
       price: ticket.price,
       userId: ticket.userId,
-      version: ticket.version
+      version: ticket.version,
     });
 
     res.send(ticket);

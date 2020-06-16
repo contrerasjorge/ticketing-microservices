@@ -18,20 +18,20 @@ const paymentSchema = new mongoose.Schema(
   {
     orderId: {
       required: true,
-      type: String
+      type: String,
     },
     stripeId: {
       required: true,
-      type: String
-    }
+      type: String,
+    },
   },
   {
     toJSON: {
       transform(doc, ret) {
         ret.id = ret._id;
         delete ret._id;
-      }
-    }
+      },
+    },
   }
 );
 
